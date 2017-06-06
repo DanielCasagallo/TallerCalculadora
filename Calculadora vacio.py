@@ -1,11 +1,20 @@
 from tkinter import*
-
+import math
 #funciones
 def Boton(numero):
     global operador
     operador = operador + str(numero)
     text_Input.set(operador)
-    
+def limpiar():
+    global operador
+    operado = ""
+    text_Input.set("")
+def resultado():
+    global operador
+    resp = str(eval(operador))
+    print(operador)
+    text_Input.set(resp)
+    operador = ""
 #mascara
 root=Tk()
 root.title("calculadora")
@@ -48,17 +57,29 @@ btn9=Button(root,padx=16,bd=8,fg="black",font=('arial',20,'bold'),text="9",
 btn0=Button(root,padx=16,bd=8,fg="black",font=('arial',20,'bold'),text="0",
             bg="powder blue",command=lambda:Boton(0)).grid(row=4,column=0)
 #---------operaciones basicas-------------------------------------------
-btnmenos=Button(root,padx=18,bd=8,fg="black",font=
-            ('arial',20,'bold'),text="-",bg="powder blue").grid(row=1,column=3)
+btnmenos=Button(root,padx=16,bd=8,fg="black",font=
+            ('arial',20,'bold'),text="-",bg="powder blue",command = lambda: Boton("-")).grid(row=1,column=3)
 btnsuma=Button(root,padx=16,bd=8,fg="black",font=
-            ('arial',18,'bold'),text="+",bg="powder blue").grid(row=2,column=3)
+            ('arial',20,'bold'),text="+",bg="powder blue",command = lambda: Boton("+")).grid(row=2,column=3)
 btnmultiplicacion=Button(root,padx=16,bd=8,fg="black",font=
-            ('arial',18,'bold'),text="*",bg="powder blue").grid(row=3,column=3)
+            ('arial',20,'bold'),text="*",bg="powder blue",command = lambda: Boton("*")).grid(row=3,column=3)
 btndivision=Button(root,padx=16,bd=8,fg="black",font=
-            ('arial',20,'bold'),text="/",bg="powder blue").grid(row=4,column=3)
+            ('arial',20,'bold'),text="/",bg="powder blue",command = lambda: Boton("/")).grid(row=4,column=3)
 btnresultado=Button(root,padx=16,bd=8,fg="black",font=
-            ('arial',20,'bold'),text="=",bg="powder blue").grid(row=4,column=2)
+            ('arial',20,'bold'),text="=",bg="powder blue",command= resultado).grid(row=4,column=2)
 btnborrar=Button(root,padx=16,bd=8,fg="black",font=
-            ('arial',20,'bold'),text="c",bg="powder blue").grid(row=4,column=1)
+            ('arial',20,'bold'),text="c",bg="powder blue",command=limpiar).grid(row=4,column=1)
+bntSen = Button(root, padx = 16, bd = 8, fg = "black", font =
+            ('arial', 20, 'bold'),text = "sen", bg = "powder blue", command = lambda: numeros("math.sin")).grid(row = 5, column = 0)
+bntCos = Button(root, padx = 16, bd = 8, fg = "black", font =
+            ('arial', 20, 'bold'),text = "cos",bg = "powder blue", command = lambda: numeros("math.cos")).grid(row = 5, column = 1)
+bntTan = Button(root, padx = 16, bd = 8, fg = "black", font =
+            ('arial', 20, 'bold'),text = "tan",bg = "powder blue", command = lambda: numeros("math.tan")).grid(row = 5, column = 2)
+bntLog = Button(root, padx = 16, bd = 8, fg = "black", font =
+            ('arial', 20, 'bold'),text = "log",bg = "powder blue", command = lambda: numeros("math.log")).grid(row = 5, column = 3)
+"""
+bntRaiz = Button(root, padx = 16, bd = 8, fg = "black", font = ('arial', 20, 'bold'),text = "sqrl",
+              bg = "powder blue", command = lambda: numeros("math.sqrl")).grid(row = 5, column = 4)
+ """
 root.mainloop()
 
