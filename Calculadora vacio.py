@@ -20,12 +20,12 @@ root=Tk()
 root.title("calculadora")
 operador=""
 text_Input=StringVar()
-txtDisplay=Entry(root,font=('arial',20,'bold'),
+txtDisplay=Entry(root,font=('arial',30,'bold'),
                  textvariable=text_Input,
                  bd=30,
-                 insertwidth=4,
+                 insertwidth=5,
                  bg="powder blue",
-                 justify='right').grid(columnspan=4)
+                 justify='right').grid(columnspan=5)
 
 btn1=Button(root,padx=16,bd=8,fg="black",font=('arial',20,'bold'),text="1",
             bg="powder blue",command=lambda:Boton(1)).grid(row=1,column=0)
@@ -70,16 +70,24 @@ btnresultado=Button(root,padx=16,bd=8,fg="black",font=
 btnborrar=Button(root,padx=16,bd=8,fg="black",font=
             ('arial',20,'bold'),text="c",bg="powder blue",command=limpiar).grid(row=4,column=1)
 bntSen = Button(root, padx = 16, bd = 8, fg = "black", font =
-            ('arial', 20, 'bold'),text = "sen", bg = "powder blue", command = lambda: numeros("math.sin")).grid(row = 5, column = 0)
+            ('arial', 20, 'bold'),text = "sen", bg = "powder blue", command = lambda: Boton("math.sin")).grid(row = 5, column = 0)
 bntCos = Button(root, padx = 16, bd = 8, fg = "black", font =
-            ('arial', 20, 'bold'),text = "cos",bg = "powder blue", command = lambda: numeros("math.cos")).grid(row = 5, column = 1)
+            ('arial', 20, 'bold'),text = "cos",bg = "powder blue", command = lambda: Boton("math.cos")).grid(row = 5, column = 1)
 bntTan = Button(root, padx = 16, bd = 8, fg = "black", font =
-            ('arial', 20, 'bold'),text = "tan",bg = "powder blue", command = lambda: numeros("math.tan")).grid(row = 5, column = 2)
+            ('arial', 20, 'bold'),text = "tan",bg = "powder blue", command = lambda: Boton("math.tan")).grid(row = 5, column = 2)
 bntLog = Button(root, padx = 16, bd = 8, fg = "black", font =
-            ('arial', 20, 'bold'),text = "log",bg = "powder blue", command = lambda: numeros("math.log")).grid(row = 5, column = 3)
-"""
-bntRaiz = Button(root, padx = 16, bd = 8, fg = "black", font = ('arial', 20, 'bold'),text = "sqrl",
-              bg = "powder blue", command = lambda: numeros("math.sqrl")).grid(row = 5, column = 4)
- """
+            ('arial', 20, 'bold'),text = "log",bg = "powder blue", command = lambda: Boton("math.log")).grid(row = 5, column = 3)
+btnpotencia = Button(root, padx = 16, bd = 8, fg = "black", font =
+                     ('arial', 20, 'bold'), text = "^", bg = "powder blue", command = lambda: Boton("**")).grid(row = 1, column = 4)
+
+btnraiz = Button(root, padx = 16, bd = 8, fg = "black", font =
+                     ('arial', 20, 'bold'), text = "√", bg = "powder blue", command = lambda: Boton("math.sqrt")).grid(row = 2, column = 4)
+
+btnparentecisizq = Button(root, padx = 16, bd = 8, fg = "black", font =
+                     ('arial', 20, 'bold'), text = "(", bg = "powder blue", command = lambda: Boton("(")).grid(row = 3, column = 4)
+
+btnparentecisder = Button(root, padx = 16, bd = 8, fg = "black", font =
+                     ('arial', 20, 'bold'), text = ")", bg = "powder blue", command = lambda: Boton(")")).grid(row = 4, column = 4)
+
 root.mainloop()
 
